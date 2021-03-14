@@ -13,6 +13,6 @@
 		}
 
 	}
-	$chuoidauvao = "abccba";
+	$chuoidauvao = "xeppex";
 	kiemtraPalinDrome($chuoidauvao);
 ?>
