@@ -3,7 +3,7 @@
 	echo "<pre>";
 		print_r($arr);
 	echo "</pre>";
-	$max = 0;
+	$max = 0;  					//co the dung ham max luon =))
 	for ($i= 0; $i <count($arr); $i++) { 
 		if($max < $arr[$i]){
 			$max = $arr[$i];
