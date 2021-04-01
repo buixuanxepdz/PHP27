@@ -51,7 +51,7 @@
             </div>
             
             <div class="form-group">
-                <label for="tailieu"></label>
+                <label for="tailieu">Ảnh</label>
                 <input type="file" class="form-control" id="tailieu" name="tailieu">
             </div>  
             <button type="submit" class="btn btn-primary" name="submit">Upload</button>
