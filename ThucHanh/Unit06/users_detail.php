@@ -36,7 +36,7 @@
             <tr>
                 
                     <td><?= $user['id']; ?></td>
-                    <td><?= $user['name']; ?></td>
+                    <td><?= $user['name1']; ?></td>
                     <td>
                         <img src="<?= $user['avatar'] ?>" width="100px" height="100px">
                     </td>
