@@ -23,6 +23,7 @@ while($row = $result->fetch_assoc()) {
  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
  	<title>CATEGORIES</title>
  	<!-- Latest compiled and minified CSS -->
+ 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
  	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
  	<!-- Optional theme -->
@@ -69,7 +70,8 @@ while($row = $result->fetch_assoc()) {
  					<td><?= $post['name1']; ?></td>
  					<td><?= $post['name']; ?></td>
  					<td>
- 						<a href="posts_detail.php?id=<?= $post['id']; ?>" class="btn btn-primary">Detail</a>
+ 						<a href="#" data-id="<?= $post['id']; ?>" class="btn btn-primary viewmodal">Detail</a>
+ 						<!-- <a href="posts_detail.php?id=<?= $post['id']; ?>" class="btn btn-primary viewmodal">Detail</a> -->
  						<a href="posts_edit.php?id=<?= $post['id']; ?>" class="btn btn-success">Edit</a>
  						<a href="posts_delete.php?id=<?= $post['id']; ?>" class="btn btn-danger">Delete</a>
  					</td>
@@ -77,5 +79,44 @@ while($row = $result->fetch_assoc()) {
  			<?php }  ?>
  		</table>
  	</div>
+ 	<div class="modal" id="viewmodal" tabindex="-1">
+ 		<div class="modal-dialog" >
+ 			<div class="modal-content">
+ 				<div class="modal-header">
+ 					<h5 class="modal-title">Modal title</h5>
+ 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ 				</div>
+ 				<div class="modal-body">
+ 					<h3>Name: <span id='nameabc'></span></h3>
+
+ 				</div>
+ 				<div class="modal-footer">
+ 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+ 					<button type="button" class="btn btn-primary">Save changes</button>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
  </body>
  </html>
+
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+ 		$('.viewmodal').click(function(e){
+ 			e.preventDefault();
+ 			let id = $(this).attr('data-id');
+ 			$.ajax({
+ 				url:"/Unit07/posts_detail.php?id=" +id,
+ 				type: 'get',
+ 				success:(response) =>{
+ 				\
+ 					console.log(response);
+ 					if(response){
+ 						$('#nameabc').text(response.title);
+ 						$('#viewmodal').modal('show')
+ 					}
+ 				}
+ 			})
+ 		})
+ 	})
+ </script>
