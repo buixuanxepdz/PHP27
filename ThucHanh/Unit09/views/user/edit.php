@@ -16,19 +16,19 @@
 <body>
     <div class="container">
     <h3 align="center">DevMind - Education And Technology Group</h3>
-    <h3 align="center">Add New Category</h3>
-    <hr>
-        <form action="index.php?mod=category&act=store" method="POST" role="form" enctype="multipart/form-data">
+    <h3 align="center">Update New User</h3>
+    <hr><a href="index.php?mod=user&act=list" class="btn btn-success">quay lại</a>
+        <form action="index.php?mod=user&act=update" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="">Name</label>
-                <input type="text" class="form-control" id="" placeholder="" name="name">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name1" placeholder="" name="name1" value="<?= $user['name1'] ?>">
+                <input type="hidden" name="id" value="<?= $user['id']; ?>">
             </div>
-            
             <div class="form-group">
-                <label for="">Description</label>
-                <input type="text" class="form-control" id="" placeholder="" name="description">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="" name="email" value="<?= $user['email'];?>">
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
 </body>

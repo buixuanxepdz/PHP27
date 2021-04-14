@@ -20,17 +20,48 @@
 			require_once('views/user/detail.php');
 
 		}
-		function add(){
-			echo "<br> Form them moi category";
+		public function add(){
+			require_once('views/user/add.php');
 		}
 
-		function add_process(){
-			echo "<br>  Process them moi category";
+		public function store(){
+			$data = $_POST;
+			$success = $this->model->create($data);
+			if ($success) {
+				setcookie('success','Thêm mới thành công',time()+10);
+			}else{
+				setcookie('error','Thêm mới thất bại',time()+10);
+			}
+			header("location:index.php?mod=user&act=list");
+		}
+		public function delete(){
+			$id = $_GET['id'];
+			$success = $this->model->destroy($id);
+			if ($success) {
+				setcookie('success','Xóa thành công',time()+10);
+			}else{
+				setcookie('error','Xóa thất bại',time()+10);
+			}
+			header("location:index.php?mod=user&act=list");
+		}
+		public function edit(){
+			$id = $_GET['id'];
+			$user = $this->model->find($id);
+			require_once('views/user/edit.php');
 		}
 
-		function edit(){
-			echo "<br> Sua category";
+		public function update(){
+			$data = $_POST;
+			$status = $this->model->update($data);
+			if ($status) {
+				setcookie('success','Cập nhật thành công',time()+10);
+			}else{
+				setcookie('error','Cập nhật thất bại',time()+10);
+			}
+			header("location:index.php?mod=user&act=list");
 		}
+
+
 
 	}
 ?>
