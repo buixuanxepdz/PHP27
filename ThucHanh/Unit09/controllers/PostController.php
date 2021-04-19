@@ -16,10 +16,9 @@
 		public function detail(){
 
 			$id = $_GET['id'];
-
+			$random = $this->model->random();
 			$post = $this->model->find($id);
 			require_once('views/post/detail.php');
-
 		}
 		public function add(){
 			$cate_model = new Category();

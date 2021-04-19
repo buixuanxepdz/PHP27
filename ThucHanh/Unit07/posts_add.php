@@ -8,7 +8,7 @@
 	$post = array();
 
 	while ($row = $result->fetch_assoc()) {
-		$post[] = $result;
+		$post[] = $row;
 	}
 
 ?>

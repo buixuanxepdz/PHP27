@@ -36,12 +36,9 @@
  				<th>Description</th>
  				<th>Content</th>
  				<th>View_count</th>
- 				<th>User name</th>
- 				<th>Category name</th>
  			</thead>
  			<?php
  				foreach ($posts as $post) {
-            			# code...
 
  					?>
  			<tr>
@@ -54,8 +51,6 @@
  					<td><?= $post['description']; ?></td>
  					<td><?= $post['content']; ?></td>
  					<td><?= $post['view_count']; ?></td>
- 					<td><?= $post['name1']; ?></td>
- 					<td><?= $post['name']; ?></td>
  					<td>
  						<a href="index.php?mod=post&act=detail&id=<?= $post['id'] ?>" class="btn btn-primary viewmodal">Detail</a>
  						<a href="index.php?mod=post&act=edit&id=<?= $post['id'] ?>" class="btn btn-success">Edit</a>

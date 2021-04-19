@@ -1,6 +1,7 @@
 <?php
 	require_once('models/Category.php');
-	class CategoryController{
+	require_once('controllers/BaseController.php');
+	class CategoryController extends BaseController{
 		var $model;
 		public function __construct(){
 			$this->model = new Category();
@@ -10,7 +11,9 @@
 
 			$categories = $this->model->all();
 
-			require_once('views/category/list.php');
+			$this->view('views/category/list',[
+				'categories' => $categories
+			]);
 		}
 		public function detail(){
 

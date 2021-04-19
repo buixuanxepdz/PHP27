@@ -1,53 +1,76 @@
 <?php
-	require_once('Connection.php');
+	require_once('Model.php');
 
-	class Post{
-		var $connection;
-		public function __construct(){
-			$connection_obj = new Connection();
-
-			$this->connection = $connection_obj->conn;
-		}
-
-		public function all(){
-			$sql = "SELECT posts.id,posts.title,posts.description,posts.thumbnail,posts.content,posts.slug,posts.view_count,users.name1,categories.name FROM posts INNER JOIN users on posts.user_id = users.id INNER JOIN categories on posts.category_id = categories.id";
+	class Post extends Model{
+		var $table = "posts";
+		
+		public function get3Post(){
+			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id ORDER BY id DESC LIMIT 3";
 
 			$result = $this->connection->query($sql);
 
-			$posts = array();
+			$threePost = array();
 
-			while($row = $result->fetch_assoc()){
-				$posts[] = $row;
+			while ($row = $result->fetch_assoc()) {
+				$threePost[] = $row;
 			}
+			return $threePost;
 
-			return $posts;
 		}
-		public function find($id){
-			$sql = "SELECT posts.id,posts.title,posts.thumbnail,posts.content,posts.description,posts.view_count,posts.slug,posts.created_at,users.name1,categories.name FROM posts INNER JOIN users on posts.user_id = users.id INNER JOIN categories on posts.category_id = categories.id WHERE posts.id = ".$id;
+		public function get2Post(){
+			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id ORDER BY id DESC LIMIT 3,2";
 
-			return $this->connection->query($sql)->fetch_assoc();
-		}
-		public function create($data){
-			$query =  "INSERT INTO posts (title,description,content) VALUES ('".$data['title']."','".$data['description']."','".$data['content']."')";
+			$result = $this->connection->query($sql);
 
-			return $this->connection->query($query);
+			$twoPost = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$twoPost[] = $row;
+			}
+			return $twoPost;
+
 		}
-		public function destroy($id){
-			$query = "DELETE FROM posts WHERE id = ".$id;
-			return $this->connection->query($query);
+		public function get6Post(){
+			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id ORDER BY id DESC LIMIT 6";
+
+			$result = $this->connection->query($sql);
+
+			$get6Post = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$get6Post[] = $row;
+			}
+			return $get6Post;
+
 		}
 
-		public function update($data){
-			$query =  "UPDATE posts SET title = '".$data['title']."', description='".$data['description']."', content='".$data['content']."' WHERE id = '".$data['id']."' ";
-			
-			return $this->connection->query($query);
+		public function random(){
+			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id ORDER BY RAND ( ) LIMIT 3";
+
+			$result = $this->connection->query($sql);
+
+			$random = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$random[] = $row;
+			}
+			return $random;
+
 		}
+		public function viewcount(){
+			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id WHERE view_count > 50";
+
+			$result = $this->connection->query($sql);
+
+			$viewcount = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$viewcount[] = $row;
+			}
+			return $viewcount;
+
+		}
+
+
 	}
-
-	/*$user = new User();
-
-	$users = $user->all();
-	echo "<pre>";
-		print_r($users);
-	echo "</pre>";*/
 ?>

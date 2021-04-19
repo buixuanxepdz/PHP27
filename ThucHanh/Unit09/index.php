@@ -3,7 +3,7 @@
 	$act = ""; //action: list,add,edit
 
 	$mod = (isset($_GET['mod'])?$_GET['mod']:'home');
-	$act = (isset($_GET['act'])?$_GET['act']:'error');
+	$act = (isset($_GET['act'])?$_GET['act']:'index');
 
 	$controller_class_name = ucfirst($mod) . 'Controller';
 	$path = __DIR__ . '/controllers/' . $controller_class_name . '.php';
@@ -19,4 +19,6 @@
 		exit();
 	}
 	$controller_obj->$act();
+
+	
 ?>
