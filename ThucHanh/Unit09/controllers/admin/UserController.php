@@ -32,7 +32,7 @@
 			}else{
 				setcookie('error','Thêm mới thất bại',time()+10);
 			}
-			header("location:index.php?mod=user&act=list");
+			header("location:index.php?admin=admin&mod=user&act=list");
 		}
 		public function delete(){
 			$id = $_GET['id'];
@@ -42,7 +42,7 @@
 			}else{
 				setcookie('error','Xóa thất bại',time()+10);
 			}
-			header("location:index.php?mod=user&act=list");
+			header("location:index.php?admin=admin&mod=user&act=list");
 		}
 		public function edit(){
 			$id = $_GET['id'];
@@ -58,7 +58,7 @@
 			}else{
 				setcookie('error','Cập nhật thất bại',time()+10);
 			}
-			header("location:index.php?mod=user&act=list");
+			header("location:index.php?admin=admin&mod=user&act=list");
 		}
 
 

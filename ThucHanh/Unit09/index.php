@@ -1,12 +1,14 @@
 <?php
+	session_start();
 	$mod = ""; //module: category,post,user
 	$act = ""; //action: list,add,edit
-
+	$admin = "";
 	$mod = (isset($_GET['mod'])?$_GET['mod']:'home');
+	$admin = (isset($_GET['admin'])?$_GET['admin']:'client');
 	$act = (isset($_GET['act'])?$_GET['act']:'index');
 
 	$controller_class_name = ucfirst($mod) . 'Controller';
-	$path = __DIR__ . '/controllers/' . $controller_class_name . '.php';
+	$path = __DIR__ . '/controllers/'.$admin.'/'. $controller_class_name . '.php';
 
 	if (!file_exists($path)){
 		echo "File $path khong ton tai";

@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DevMind - Education And Technology Group</title>
-    <!-- Latest compiled and minified CSS -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+<?php require_once('views/admin/header.php'); ?>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 <script type="text/javascript">
         $(document).ready(function(){
 
@@ -22,8 +9,11 @@
                 onkeyup: false,
                 onclick: false,
                 rules: {
-                    "name": {
+                    "name1": {
                         required: true
+                    },
+                    "thumbnail":{
+                        required:true
                     },
                     "email": {
                         required: true
@@ -33,8 +23,11 @@
                     },
                 },
                 messages: {
-                    "name": {
+                    "name1": {
                         required: "Please enter name",
+                    },
+                    "thumbnail": {
+                        required: "Please enter thumbnail",
                     },
                     "email": {
                         required: "Please enter email",
@@ -48,6 +41,8 @@
     </script>
     <style type="text/css">
         .error{
+            width: 100%;
+            font-size: 16px;
             color: red;
         }
     </style>
@@ -57,12 +52,16 @@
     <h3 align="center">DevMind - Education And Technology Group</h3>
     <h3 align="center">Add New User</h3>
     <hr>
-        <a href="users.php" class="btn btn-success">quay lại</a>
-        <form id="demoForm" action="index.php?mod=user&act=store" method="POST" role="form" enctype="multipart/form-data">
+        <a href="index.php?admin=admin&mod=user&act=list" class="btn btn-success">quay lại</a>
+        <form id="demoForm" action="index.php?admin=admin&mod=user&act=store" method="POST" role="form" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name1" placeholder="" name="name1">
+            </div>
+            <div class="form-group">
+                <label for="name">Avatar</label>
+                <input type="text" class="form-control" id="avatar" placeholder="" name="avatar">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -70,7 +69,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="" name="password">
+                <input  type="password" class="form-control" id="password" placeholder="" name="password">
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>

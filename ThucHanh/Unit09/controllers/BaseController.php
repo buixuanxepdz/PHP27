@@ -1,7 +1,7 @@
 <?php 
 	
 	class BaseController
-	{
+	{	
 	    public function view($name,$data = [])
 	    {
 	    	extract($data);

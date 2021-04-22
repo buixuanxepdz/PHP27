@@ -5,8 +5,7 @@
 		var $table = "posts";
 		
 		public function get3Post(){
-			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id ORDER BY id DESC LIMIT 3";
-
+			$sql = "SELECT posts.*,categories.category_name FROM ".$this->table." INNER JOIN categories ON ".$this->table.".category_id = categories.id ORDER BY ".$this->table.".id DESC LIMIT 3";
 			$result = $this->connection->query($sql);
 
 			$threePost = array();
@@ -18,7 +17,7 @@
 
 		}
 		public function get2Post(){
-			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id ORDER BY id DESC LIMIT 3,2";
+			$sql = "SELECT posts.*,categories.category_name FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.id ORDER BY posts.id DESC LIMIT 3,2";
 
 			$result = $this->connection->query($sql);
 
@@ -31,7 +30,7 @@
 
 		}
 		public function get6Post(){
-			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id ORDER BY id DESC LIMIT 6";
+			$sql = "SELECT posts.*,categories.category_name FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.id ORDER BY posts.id DESC LIMIT 6";
 
 			$result = $this->connection->query($sql);
 
@@ -45,7 +44,7 @@
 		}
 
 		public function random(){
-			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id ORDER BY RAND ( ) LIMIT 3";
+			$sql = "SELECT posts.*,categories.category_name FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.id ORDER BY RAND ( ) LIMIT 3";
 
 			$result = $this->connection->query($sql);
 
@@ -58,7 +57,7 @@
 
 		}
 		public function viewcount(){
-			$sql = "SELECT * FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.category_id WHERE view_count > 50";
+			$sql = "SELECT posts.*,categories.category_name FROM ".$this->table." INNER JOIN categories ON posts.category_id = categories.id WHERE view_count > 50";
 
 			$result = $this->connection->query($sql);
 
@@ -70,7 +69,66 @@
 			return $viewcount;
 
 		}
+		public function getallCategory(){
+			$sql = "SELECT posts.*,categories.category_name FROM ".$this->table." INNER JOIN categories ON ".$this->table.".category_id = categories.id ORDER BY posts.id,posts.created_at DESC";
 
+			$result = $this->connection->query($sql);
 
+			$getallCategory = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$getallCategory[] = $row;
+			}
+			return $getallCategory;
+		}
+		public function getFashionCategory(){
+			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE category_name = 'fashion' " ;
+			
+			$result = $this->connection->query($sql);
+
+			$getFashionCategory = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$getFashionCategory[] = $row;
+			}
+			return $getFashionCategory;
+		}
+		public function getTravelCategory(){
+			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE category_name = 'Travel' " ;
+			
+			$result = $this->connection->query($sql);
+
+			$getTravelCategory = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$getTravelCategory[] = $row;
+			}
+			return $getTravelCategory;
+		}
+		public function getMusicCategory(){
+			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE category_name = 'Music' " ;
+			
+			$result = $this->connection->query($sql);
+
+			$getMusicCategory = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$getMusicCategory[] = $row;
+			}
+			return $getMusicCategory;
+		}
+		public function getSportCategory(){
+			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE category_name = 'Sports' " ;
+			
+			$result = $this->connection->query($sql);
+
+			$getSportCategory = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$getSportCategory[] = $row;
+			}
+			return $getSportCategory;
+		}
+		
 	}
 ?>

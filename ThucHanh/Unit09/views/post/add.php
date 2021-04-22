@@ -1,34 +1,71 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DevMind - Education And Technology Group</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<?php require_once('views/admin/header.php'); ?>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+<script type="text/javascript">
+        $(document).ready(function(){
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</head>
+            $("#Form").validate({
+                onfocusout: false,
+                onkeyup: false,
+                onclick: false,
+                rules: {
+                    "title": {
+                        required: true
+                    },
+                    "thumbnail":{
+                        required:true
+                    },
+                    "description": {
+                        required: true
+                    },
+                    "content":{
+                        required:true
+                    },
+                },
+                messages: {
+                    "title": {
+                        required: "Please enter title",
+                    },
+                    "thumbnail": {
+                        required: "Please enter thumbnail",
+                    },
+                    "description": {
+                        required: "Please enter description",
+                    },
+                    "content": {
+                        required: "Please enter content",
+                    }
+                }
+            });
+        })
+    </script>
+    <style type="text/css">
+        .error{
+            width: 100%;
+            font-size: 16px;
+            color: red;
+        }
+    </style>
 <body>
     <div class="container">
     <h3 align="center">DevMind - Education And Technology Group</h3>
     <h3 align="center">Add New Posts</h3>
     <hr>
-        <form action="index.php?mod=post&act=store" method="POST" role="form" enctype="multipart/form-data">
+        <form id="Form"  action="index.php?admin=admin&mod=post&act=store" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Title</label>
                 <input type="text" class="form-control" id="title" placeholder="" name="title">
             </div>
             <div class="form-group">
+                <label for="thumbnail">Thumbnail</label>
+                <input type="text" class="form-control" id="thumbnail" placeholder="" name="thumbnail">
+            </div>
+            <div class="form-group">
                 <label for="">Category</label>
-                <select name="category" class="form-control" id="category">
+                <select name="category_id" class="form-control" id="category_id">
                     <?php foreach ($categories as $cate) {
                         # code... ?>
-                    <option value="<?= $cate['id']; ?>"><?= $cate['name']; ?></option>
+                    <option value="<?= $cate['id']; ?>"><?= $cate['category_name']; ?></option>
                     <?php } ?>
                 </select>
             </div>

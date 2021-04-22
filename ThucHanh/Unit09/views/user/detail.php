@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail</title>
-     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</head>
+<?php require_once('views/admin/header.php'); ?>
+    <style>
+    </style>
 <body>
     <table class="table" width="1000px" align="center">
             <thead>
@@ -31,9 +20,9 @@
                     </td>
                     <td><?= $user['email']; ?></td>
                     <td><?= $user['password']; ?></td>
-                    <td><?= $user['created_at']; ?></td>
+                    <td><?= $user['user_created_at']; ?></td>
                 </tr>
         </table>
-        <a class="btn btn-primary" href="index.php?mod=user&act=list">Quay lai trang chu</a>
+        <a class="btn btn-primary" href="index.php?admin=admin&mod=user&act=list">Quay lai trang chu</a>
 </body>
 </html>

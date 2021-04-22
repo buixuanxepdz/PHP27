@@ -1,22 +1,8 @@
-<!DOCTYPE html>
- <html>
- <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CATEGORIES</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<?php require_once('views/admin/header.php'); ?>
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
- </head>
- <body>
     <div class="container">
         <h3 class="text-center">--- CATEGORIES ---</h3>
-        <a href="index.php?mod=category&act=add" class="btn btn-primary">Add New Category</a>
+        <a href="index.php?admin=admin&mod=category&act=add" class="btn btn-primary">Add New Category</a>
         <?php
         if(isset($_COOKIE['success'])){
             ?>
@@ -43,15 +29,15 @@
             <tr>
                 
                     <td><?= $cate['id']; ?></td>
-                    <td><?= $cate['name']; ?></td>
+                    <td><?= $cate['category_name']; ?></td>
                     <td>
-                        <img src="<?= $cate['thumbnail'] ?>" width="100px" height="100px">
+                        <img src="<?= $cate['category_thumbnail'] ?>" width="100px" height="100px">
                     </td>
-                    <td><?= $cate['description']; ?></td>
+                    <td><?= $cate['category_description']; ?></td>
                     <td>
-                        <a href="index.php?mod=category&act=detail&id=<?= $cate['id']?>" class="btn btn-primary">Detail</a>
-                        <a href="index.php?mod=category&act=edit&id=<?= $cate['id']?>" class="btn btn-success">Edit</a>
-                        <a href="index.php?mod=category&act=delete&id=<?= $cate['id']?>" class="btn btn-danger">Delete</a>
+                        <a href="index.php?&admin=admin&mod=category&act=detail&id=<?= $cate['id']?>" class="btn btn-primary">Detail</a>
+                        <a href="index.php?&admin=admin&mod=category&act=edit&id=<?= $cate['id']?>" class="btn btn-success">Edit</a>
+                        <a href="index.php?admin=admin&mod=category&act=delete&id=<?= $cate['id']?>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             <?php }  ?>
@@ -59,3 +45,4 @@
     </div>
  </body>
  </html>
+ <?php  ?>

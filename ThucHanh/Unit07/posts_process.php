@@ -1,8 +1,8 @@
 <?php
 	require_once('connection.php');
 	$data = $_POST;
-     $pname = rand(1000,10000)."-".$_FILES['thumbnail']['name'];
-     $tname = $_FILES["thumbnail"]["tmp_name"];
+    $pname = rand(1000,10000)."-".$_FILES['thumbnail']['name'];
+    $tname = $_FILES["thumbnail"]["tmp_name"];
    
     
     $uploads_dir = 'uploads/';

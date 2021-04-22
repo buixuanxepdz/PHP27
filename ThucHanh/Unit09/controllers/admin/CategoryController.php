@@ -1,29 +1,31 @@
 <?php
-	require_once('models/Post.php');
 	require_once('models/Category.php');
-	class PostController{
+	require_once('controllers/admin/BaseAdminController.php');
+	class CategoryController extends BaseController{
 		var $model;
 		public function __construct(){
-			$this->model = new Post();
+			$this->model = new Category();
 		}
 
 		public function list(){
 
-			$posts = $this->model->all();
+			$categories = $this->model->all();
 
-			require_once('views/post/list.php');
+			$this->view('views/category/list',[
+				'categories' => $categories
+			]);
 		}
 		public function detail(){
 
 			$id = $_GET['id'];
-			$random = $this->model->random();
-			$post = $this->model->find($id);
-			require_once('views/post/detail.php');
+
+			$category = $this->model->find($id);
+			require_once('views/category/detail.php');
+
 		}
 		public function add(){
-			$cate_model = new Category();
-			$categories = $cate_model->all();
-			require_once('views/post/add.php');
+			/*$parents = $this->model->parents();*/
+			require_once('views/category/add.php');
 		}
 
 		public function store(){
@@ -34,7 +36,7 @@
 			}else{
 				setcookie('error','Thêm mới thất bại',time()+10);
 			}
-			header("location:index.php?mod=post&act=list");
+			header("location:index.php?admin=admin&mod=category&act=list");
 		}
 		public function delete(){
 			$id = $_GET['id'];
@@ -44,26 +46,26 @@
 			}else{
 				setcookie('error','Xóa thất bại',time()+10);
 			}
-			header("location:index.php?mod=post&act=list");
+			header("location:index.php?admin=admin&mod=category&act=list");
 		}
 		public function edit(){
 			$id = $_GET['id'];
-			$post = $this->model->find($id);
-			require_once('views/post/edit.php');
+			$category = $this->model->find($id);
+			require_once('views/category/edit.php');
 		}
 
 		function update(){
 			$data = $_POST;
+
 			$status = $this->model->update($data);
 			if ($status) {
 				setcookie('success','Cập nhật thành công',time()+10);
 			}else{
 				setcookie('error','Cập nhật thất bại',time()+10);
 			}
-			header("location:index.php?mod=post&act=list");
+			header("location:index.php?admin=admin&mod=category&act=list");
 		}
 
-		
 
 	}
 ?>

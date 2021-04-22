@@ -23,9 +23,10 @@
 			return $categories;
 		}
 		public function find($id){
-			$sql = "SELECT * FROM ".$this->table." WHERE id = " .$id;
-
+			$sql = "SELECT * FROM ".$this->table." WHERE $this->table.id = " .$id;
 			return $this->connection->query($sql)->fetch_assoc();
+			/*echo $sql;
+			die();*/
 		}
 
 		public function destroy($id){
@@ -44,7 +45,8 @@
 			$values = trim($values,',');
 
 			$sql = "INSERT INTO ".$this->table." (".$columns.") VALUES (".$values.")";
-
+			/*echo $sql;
+			die();*/
 			return $this->connection->query($sql);
 		}
 		public function update($data){
@@ -54,7 +56,8 @@
 			}
 			$values = trim($values,',');
 			$query =  "UPDATE ".$this->table." SET ".$values." WHERE id = '".$data['id']."' ";
-			
+			// echo $query;
+			// die();
 			return $this->connection->query($query);
 		}
 	}
