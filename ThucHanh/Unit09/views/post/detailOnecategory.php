@@ -13,7 +13,7 @@
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
         <!-- /Font Icons -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
@@ -27,7 +27,9 @@
         <link rel="stylesheet" href="public/css/reset.css">
         <link rel="stylesheet" href="public/css/normalize.css">
         <link rel="stylesheet" href="public/css/main.css">
+        <style type="text/css">
 
+        </style>
         <!-- /JS -->
         <script src="js/vendor/modernizr.min.js"></script>
 
@@ -197,18 +199,16 @@
             <section class="contents-container">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8"><?php foreach ($post as $value) {
+                        <div class="col-md-8">
+                            <!-- /heading --> 
+                            <div class="contents-inner list-view clearfix">
+                                 <?php foreach ($post as $value) {
                                     # code...
                                  ?>
-                            <div class="heading clearfix">
-                                <a href="#"><?= $value['category_name'] ?></a>
-                            </div><!-- /heading -->
-                            <div class="contents-inner list-view clearfix">
-                                
                                 <article class="blog-post col-md-12">
                                     <aside>
                                         <figure>
-                                            <img src="<?= $value['thumbnail'] ?>" alt="Maverick Blog">
+                                            <img style="width: 100%;height: 200px;" src="public/images/<?= $value['thumbnail'] ?>" alt="Maverick Blog">
                                         </figure>
                                     </aside>
                                     <div class="contents">
@@ -236,9 +236,7 @@
                         </div><!-- /col-md-8 -->
                         <div class="col-md-4">
                             <div class="sidebar">
-                                <div class="widget widget_customAd">
-                                    <img src="img/misc/sidebarAd.jpg" alt="Maverick">
-                                </div><!-- /widget -->
+                               
                                 <div class="widget widget_search">
                                     <form role="search" class="search-form" action="#">
                                         <input type="search" class="search-field" name="s" title="Search for:" placeholder="Search…">
@@ -269,7 +267,7 @@
                                     <ul>
                                         <li>
                                          <div class="featured-image">
-                                            <img style="width: 90px;height: 70px;" src="<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
+                                            <img style="width: 90px;height: 70px;" src="public/images/<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
                                         </div>
                                         <div class="post-content">
                                             <p class="post-title"><a href="index.php?admin=admin&mod=post&act=detailuser&id=<?= $value['id']?>"><?= $value['title'] ?></a></p>
@@ -341,7 +339,7 @@
                                  <ul>
                                     <li>
                                      <div class="featured-image">
-                                        <img style="width: 90px;height: 70px;" src="<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
+                                        <img style="width: 90px;height: 70px;" src="public/images/<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
                                     </div>
                                     <div class="post-content">
                                         <p class="post-title"><a href="index.php?admin=admin&mod=post&act=detailuser&id=<?= $value['id']?>"><?= $value['title'] ?></a></p>
@@ -358,7 +356,6 @@
                             <div class="widget widget_categories">
                                 <h5>Categories</h5>
                                 <ul>
-                                    <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
                                     <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
                                     <?php foreach ($getCategory as $value) {
                                         # code...
@@ -396,3 +393,4 @@
 
     </body>
 </html>
+>

@@ -87,49 +87,13 @@
 			// die();
 			$result = $this->connection->query($sql);
 
-			$getFashionCategory = array();
+			$getCategory = array();
 
 			while ($row = $result->fetch_assoc()) {
-				$getFashionCategory[] = $row;
+				$getCategory[] = $row;
 			}
-			return $getFashionCategory;
+			return $getCategory;
 		}
-		/*public function getTravelCategory(){
-			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE category_name = 'Travel' " ;
-			
-			$result = $this->connection->query($sql);
-
-			$getTravelCategory = array();
-
-			while ($row = $result->fetch_assoc()) {
-				$getTravelCategory[] = $row;
-			}
-			return $getTravelCategory;
-		}
-		public function getMusicCategory(){
-			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE category_name = 'Music' " ;
-			
-			$result = $this->connection->query($sql);
-
-			$getMusicCategory = array();
-
-			while ($row = $result->fetch_assoc()) {
-				$getMusicCategory[] = $row;
-			}
-			return $getMusicCategory;
-		}
-		public function getSportCategory(){
-			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE category_name = 'Sports' " ;
-			
-			$result = $this->connection->query($sql);
-
-			$getSportCategory = array();
-
-			while ($row = $result->fetch_assoc()) {
-				$getSportCategory[] = $row;
-			}
-			return $getSportCategory;
-		}*/
 		
 	}
 ?>

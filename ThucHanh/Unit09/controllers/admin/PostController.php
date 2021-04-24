@@ -34,33 +34,14 @@
 			$id = $_GET['id'];
 			$random = $this->model->random();
 			$post =  $this->model->getCategory($id);
-			$getCategory = $this->category_model->getCategory();//category
+			$getCategory = $this->category_model->getCategory($id);//category
 			require_once('views/post/detailOnecategory.php');
 		}
-		/*public function getTravelCategory(){
-			
-			$random = $this->model->random();
-			$post =  $this->model->getTravelCategory();
-			require_once('views/post/detailTravelcategory.php');
-		}
-		public function getSportCategory(){
-			
-			$random = $this->model->random();
-			$post =  $this->model->getSportCategory();
-			require_once('views/post/detailSportcategory.php');
-		}
-		public function getMusicCategory(){
-			
-			$random = $this->model->random();
-			$post =  $this->model->getMusicCategory();
-			require_once('views/post/detailMusiccategory.php');
-		}*/
 		public function getallCategory(){
 
-			/*$id = $_GET['id'];*/
 			$random = $this->model->random();
-			/*$post = $this->model->all();*/
 			$category = $this->model->getallCategory();
+			$getCategory = $this->category_model->getCategory();//category
 			require_once('views/post/detailcategory.php');
 		}
 		public function add(){
@@ -73,12 +54,16 @@
 		}
 		public function store(){
 			$data = $_POST;
-			/*$pname = rand(1000,10000)."-".$_FILES['thumbnail']['name'];
-			$tname = $_FILES["thumbnail"]["tmp_name"];
+			$target_dir = "public/images/";  // thư mục chứa file upload
 
-
-			$uploads_dir = 'uploads';
-			move_uploaded_file($tname, $uploads_dir.'/'.$pname);*/
+	        $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]); // link sẽ upload file lên
+	        
+	        if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) { // nếu upload file không có lỗi 
+	        	$img = array('thumbnail' => $_FILES["thumbnail"]["name"]);
+	        	$data = array_merge($data, $img);
+	        } else { // Upload file có lỗi 
+	        	echo "Sorry, there was an error uploading your file.";
+	        }
 			$success = $this->model->create($data);
 			if ($success) {
 				setcookie('success','Thêm mới thành công',time()+10);
@@ -106,13 +91,36 @@
 
 		function update(){
 			$data = $_POST;
-			$status = $this->model->update($data);
+			 // kiểm tra xem button Submit đã được click hay chưa ? 
+
+	        $target_dir = "public/images/";  // thư mục chứa file upload
+
+	        $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]); // link sẽ upload file lên
+	        
+	        if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) { // nếu upload file không có lỗi 
+	        	$img = array('thumbnail' => $_FILES["thumbnail"]["name"]);
+	        	$data = array_merge($data, $img);
+	        } else { // Upload file có lỗi 
+	        	echo "Sorry, there was an error uploading your file.";
+	        }
+	    	
+	    	// echo "<pre>";
+	    	// print_r($data);
+	    	// echo "</pre>";
+	    	// die();
+	    	$status = $this->model->update($data);
 			if ($status) {
 				setcookie('success','Cập nhật thành công',time()+10);
 			}else{
 				setcookie('error','Cập nhật thất bại',time()+10);
 			}
 			header("location:index.php?admin=admin&mod=post&act=list");
+		}
+		public function search(){
+			$keyWord = $_POST['keyWord'];
+			$categories = $this->model->search($keyWord);
+
+			require_once('views/home/index.php');
 		}
 
 		

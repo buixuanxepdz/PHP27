@@ -33,7 +33,7 @@
  					<td><?= $post['id']; ?></td>
  					<td><?= $post['title']; ?></td>
  					<td>
- 						<img src="<?= $post['thumbnail'] ?>" width="100px" height="100px">
+ 						<img src="public/images/<?= $post['thumbnail'] ?>" width="100px" height="100px">
  					</td>
  					<td style="width: 40%;display: inline-block;height: 180px;overflow-y: scroll;"><?= $post['description']; ?></td>
  					<td style="width: 50%;display: inline-block;height: 180px;overflow-y: scroll;"><?= $post['content']; ?></td>

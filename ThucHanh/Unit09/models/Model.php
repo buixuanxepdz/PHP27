@@ -60,5 +60,6 @@
 			// die();
 			return $this->connection->query($query);
 		}
+		
 	}
 ?>

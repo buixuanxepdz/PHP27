@@ -175,7 +175,6 @@
                                 </div><!-- /search-container -->
                                 <ul class="main-nav-items">
                                     <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
-                                   <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
                                     <?php foreach ($getCategory as $value) {
                                         # code...
                                      ?>
@@ -209,7 +208,7 @@
                                 <article class="blog-post col-md-12">
                                     <aside>
                                         <figure>
-                                            <img src="<?= $value['thumbnail'] ?>" alt="Maverick Blog">
+                                            <img src="public/images/<?= $value['thumbnail'] ?>" alt="Maverick Blog">
                                         </figure>
                                     </aside>
                                     <div class="contents">
@@ -270,7 +269,7 @@
                                     <ul>
                                         <li>
                                          <div class="featured-image">
-                                            <img style="width: 90px;height: 70px;" src="<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
+                                            <img style="width: 90px;height: 70px;" src="public/images/<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
                                         </div>
                                         <div class="post-content">
                                             <p class="post-title"><a href="index.php?admin=admin&mod=post&act=detailuser&id=<?= $value['id']?>"><?= $value['title'] ?></a></p>
@@ -286,7 +285,7 @@
                                     <h5>Categories</h5>
                                     <ul>
                                        <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
-                                      <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
+                                      
                                     <?php foreach ($getCategory as $value) {
                                         # code...
                                      ?>
@@ -298,10 +297,11 @@
                                     <h5>Tag Cloud</h5>
                                     <div class="tagcloud">
                                         <a href="?admin=admin&mod=post&act=getallCategory">ALL</a>
-                                        <a href="index.php?admin=admin&mod=post&act=getFashionCategory">Fashion</a>
-                                        <a href="index.php?admin=admin&mod=post&act=getMusicCategory">Music</a>
-                                        <a href="index.php?admin=admin&mod=post&act=getSportCategory">Sport</a>
-                                        <a href="index.php?admin=admin&mod=post&act=getTravelCategory">Travel</a>
+                                         <?php foreach ($getCategory as $value) {
+                                        # code...
+                                     ?>
+                                    <a href="index.php?admin=admin&mod=post&act=getCategory&id=<?= $value['id'] ?>"><?= $value['category_name'] ?></a>
+                                <?php } ?>
                                     </div>
                                 </div><!-- /widget -->
                                 <div class="widget widget_text">
@@ -342,7 +342,7 @@
                                  <ul>
                                     <li>
                                      <div class="featured-image">
-                                        <img style="width: 90px;height: 70px;" src="<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
+                                        <img style="width: 90px;height: 70px;" src="public/images/<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
                                     </div>
                                     <div class="post-content">
                                         <p class="post-title"><a href="index.php?admin=admin&mod=post&act=detailuser&id=<?= $value['id']?>"><?= $value['title'] ?></a></p>
@@ -359,7 +359,6 @@
                             <div class="widget widget_categories">
                                 <h5>Categories</h5>
                                 <ul>
-                                   <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
                                    <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
                                     <?php foreach ($getCategory as $value) {
                                         # code...

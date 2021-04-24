@@ -58,7 +58,7 @@
             </div>
             <div class="form-group">
                 <label for="thumbnail">Thumbnail</label>
-                <input type="text" class="form-control" id="thumbnail" placeholder="" name="thumbnail">
+                <input type="file" class="form-control" id="thumbnail" placeholder="" name="thumbnail">
             </div>
             <div class="form-group">
                 <label for="">Category</label>

@@ -11,16 +11,16 @@
             </div>
              <div class="form-group">
                 <label for="">Thumbnail</label>
-                <input type="text" class="form-control" id="" placeholder="" name="thumbnail" value="<?= $post['thumbnail'] ?>">
+                <input type="file" class="form-control" id="" placeholder="" name="thumbnail" value="<?= $post['thumbnail'] ?>">
             </div>
             <div class="form-group">
                 <label for="">Description</label>
-                <textarea type="text" class="form-control" id="" placeholder="" name="description"><?= $post['description'] ?></textarea>
+                <textarea type="text" class="form-control" id="" placeholder="" name="description" style="height: 100px;"><?= $post["description"] ?></textarea>
             </div>
              <div class="form-group">
                 <label for="">Content</label>
-                <textarea  id="content" name="content" class="form-control" rows="4" cols="50">
-                    <?= $post['content'] ?>
+                <textarea  id="content" name="content" class="form-control" style="height: 300px;">
+                    <?= $post["content"] ?>
                 </textarea>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>

@@ -16,5 +16,18 @@
 			return $getCategory;
 
 		}
+		public function search($keyWord){
+			$sql = "SELECT * FROM posts WHERE name like '%". $keyWord . "%'";
+			// echo $sql;
+			// die();
+			$result = $this->connection->query($sql);
+
+			$search = array();
+
+			while ($row = $result->fetch_assoc()) {
+				$search[] = $row;
+			}
+			return $search;
+		}
 		}
 ?>

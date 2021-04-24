@@ -137,9 +137,9 @@
                                 <a href="#" class="trigger">
                                     <i class="fa fa-search"></i>
                                 </a>
-                                <form action="#" class="header-search-form">
+                                <form action="admin=client&mod=post&act=search" class="header-search-form">
                                     <div class="input-container">
-                                        <input type="search" placeholder="Search..">
+                                        <input type="search"  placeholder="Search..">
                                     </div>
                                 </form>
                             </div><!-- /search-container -->
@@ -208,7 +208,7 @@
                                 <article class="blog-post">
                                     <header>
                                         <figure>
-                                            <img style="width: 100%;height: 400px;" src="<?= $value['thumbnail']; ?>" alt>
+                                            <img style="width: 100%;height: 400px;" src="public/images/<?= $value['thumbnail']; ?>" alt>
                                         </figure>
                                         <ul class="categories">
                                             <li><a href=""><?= $value['category_name']; ?></a></li>
@@ -235,7 +235,7 @@
                             <article class="blog-post featured-post">
                                 <header>
                                     <figure>
-                                        <img src="<?= $value['thumbnail'];?>" alt="Maverick Blog">
+                                        <img src="public/images/<?= $value['thumbnail'];?>" alt="Maverick Blog">
                                     </figure>
                                     <h3><a href="index.php?admin=admin&mod=post&act=detailuser&id=<?= $value['id']?>"><?= $value['title']; ?></a></h3>
                                 </header>
@@ -255,7 +255,7 @@
                                        <article class="blog-post col-md-6 col-sm-6">
                                         <header>
                                             <figure>
-                                                <img style="width: 100%;height: 200px;" src="<?= $value['thumbnail'] ?>" alt="Maverick Blog">
+                                                <img style="width: 100%;height: 200px;" src="public/images/<?= $value['thumbnail'] ?>" alt="Maverick Blog">
                                             </figure>
                                             <ul class="categories">
                                                 <li><a href="#"><?= $value['category_name']; ?></a></li>
@@ -283,7 +283,7 @@
                                     <article class="blog-post col-md-6 col-sm-6">
                                         <header>
                                             <figure>
-                                                <img style="width: 100%;height: 200px;" src="<?= $value['thumbnail'] ?>" alt="Maverick Blog">
+                                                <img style="width: 100%;height: 200px;" src="public/images/<?= $value['thumbnail'] ?>" alt="Maverick Blog">
                                             </figure>
                                             <ul class="categories">
                                                 <li><a href="#"><?= $value['category_name'] ?></a></li>
@@ -337,7 +337,7 @@
                                     <ul>
                                         <li>
                                          <div class="featured-image">
-                                            <img style="width: 90px;height: 70px;" src="<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
+                                            <img style="width: 90px;height: 70px;" src="public/images/<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
                                         </div>
                                         <div class="post-content">
                                             <p class="post-title"><a href="index.php?admin=admin&mod=post&act=detailuser&id=<?= $value['id']?>"><?= $value['title'] ?></a></p>
@@ -407,7 +407,7 @@
                        <ul>
                         <li>
                            <div class="featured-image">
-                            <img style="width: 90px;height: 70px;" src="<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
+                            <img style="width: 90px;height: 70px;" src="public/images/<?= $value['thumbnail'] ?>" alt="Maverik Sidebar">
                         </div>
                         <div class="post-content">
                             <p class="post-title"><a href="index.php?admin=admin&mod=post&act=detailuser&id=<?= $value['id']?>"><?= $value['title'] ?></a></p>

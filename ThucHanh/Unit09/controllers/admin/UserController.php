@@ -61,7 +61,12 @@
 			header("location:index.php?admin=admin&mod=user&act=list");
 		}
 
+		public function search(){
+			$keyWord = $_POST['keyWord'];
+			$users = $this->model->search($keyWord);
 
+			require_once('views/user/list.php');
+		}
 
 	}
 ?>

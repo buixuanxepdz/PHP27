@@ -65,7 +65,7 @@
 			}
 			header("location:index.php?admin=admin&mod=category&act=list");
 		}
-
+		
 
 	}
 ?>
