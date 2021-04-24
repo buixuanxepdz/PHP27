@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bùi Xuân Xếp</title>
+        <title>Maverick - Minimalist Blog Magazine</title>
         <meta name="description" content="Maverick - Minimalist Blog Magazine">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -53,7 +53,7 @@
                     <div class="col-md-12">
                         <div class="logo-container">
                             <a href="index.php">
-                                <img src="public/images/zenter.png" alt="Maverick Logo">
+                                <img width="120px" height="50px" src="public/images/zenter.png" alt="Maverick Logo">
                             </a>
                         </div><!-- /logo-container -->
                     </div><!-- /col-md-12 -->
@@ -110,7 +110,7 @@
                     <img src="img/misc/sideheaderAd.jpg" alt="Maverick">
                 </a>
             </div>
-            <p class="copyright">Copyright © 2021 BXX.</p>
+            <p class="copyright">Copyright © 2015 Maverick.</p>
         </aside><!-- /sideheader -->
 
         <section id="wrapper">
@@ -196,14 +196,14 @@
             <section class="contents-container">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8">
-                            <div class="heading clearfix">
-                                <a href="#">Sports</a>
-                            </div><!-- /heading -->
-                            <div class="contents-inner list-view clearfix">
-                                <?php foreach ($post as $key => $value) {
+                        <div class="col-md-8"><?php foreach ($post as $value) {
                                     # code...
                                  ?>
+                            <div class="heading clearfix">
+                                <a href="#"><?= $value['category_name'] ?></a>
+                            </div><!-- /heading -->
+                            <div class="contents-inner list-view clearfix">
+                                
                                 <article class="blog-post col-md-12">
                                     <aside>
                                         <figure>
@@ -288,7 +288,7 @@
                                        <li><a href="index.php?admin=admin&mod=post&act=getMusicCategory">Music</a></li>
                                        <li><a href="index.php?admin=admin&mod=post&act=getSportCategory">Sport</a></li>
                                        <li><a href="index.php?admin=admin&mod=post&act=getTravelCategory">Travel</a></li>
-                                    </ul>
+                                   </ul>
                                 </div><!-- /widget -->
                                 <div class="widget widget_tag_cloud">
                                     <h5>Tag Cloud</h5>

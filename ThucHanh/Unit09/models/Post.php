@@ -81,9 +81,10 @@
 			}
 			return $getallCategory;
 		}
-		public function getFashionCategory(){
-			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE category_name = 'fashion' " ;
-			
+		public function getCategory($id){
+			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE categories.id = ".$id ;
+			// echo $sql;
+			// die();
 			$result = $this->connection->query($sql);
 
 			$getFashionCategory = array();
@@ -93,7 +94,7 @@
 			}
 			return $getFashionCategory;
 		}
-		public function getTravelCategory(){
+		/*public function getTravelCategory(){
 			$sql = "SELECT posts.*,categories.category_name FROM posts INNER JOIN categories ON posts.category_id = categories.id  WHERE category_name = 'Travel' " ;
 			
 			$result = $this->connection->query($sql);
@@ -128,7 +129,7 @@
 				$getSportCategory[] = $row;
 			}
 			return $getSportCategory;
-		}
+		}*/
 		
 	}
 ?>

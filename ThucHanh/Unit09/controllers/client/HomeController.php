@@ -14,6 +14,7 @@
  	    	$get6Post = $this->post_model->get6Post();
  	    	$random = $this->post_model->random();
  	    	$getCategory = $this->category_model->getCategory();
+ 	    	$getCategory = $this->category_model->getCategory();
  	    	$viewcount = $this->post_model->viewcount();
  	    	$getallCategory = $this->post_model->getallCategory();
  	    	require_once('views/home/index.php');

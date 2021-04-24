@@ -27,34 +27,31 @@
 			$post = $this->model->find($id);
 			require_once('views/post/detailuser.php');
 		}
-		public function getFashionCategory(){
-			
-			/*$id = $_GET['id'];*/
+
+		public function getCategory(){
+			$id = $_GET['id'];
 			$random = $this->model->random();
-			$post =  $this->model->getFashionCategory();
-			require_once('views/post/detailFashioncategory.php');
+			$post =  $this->model->getCategory($id);
+			require_once('views/post/detailOnecategory.php');
 		}
-		public function getTravelCategory(){
+		/*public function getTravelCategory(){
 			
-			/*$id = $_GET['id'];*/
 			$random = $this->model->random();
 			$post =  $this->model->getTravelCategory();
 			require_once('views/post/detailTravelcategory.php');
 		}
 		public function getSportCategory(){
 			
-			/*$id = $_GET['id'];*/
 			$random = $this->model->random();
 			$post =  $this->model->getSportCategory();
 			require_once('views/post/detailSportcategory.php');
 		}
 		public function getMusicCategory(){
 			
-			/*$id = $_GET['id'];*/
 			$random = $this->model->random();
 			$post =  $this->model->getMusicCategory();
 			require_once('views/post/detailMusiccategory.php');
-		}
+		}*/
 		public function getallCategory(){
 
 			/*$id = $_GET['id'];*/
