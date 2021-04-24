@@ -181,9 +181,7 @@
                                      ?>
                                     <li><a href="index.php?admin=admin&mod=post&act=getCategory&id=<?= $value['id'] ?>"><?= $value['category_name'] ?></a></li>
                                 <?php } ?>
-                                    <!-- <li><a href="index.php?admin=admin&mod=post&act=getMusicCategory">Music</a></li>
-                                    <li><a href="index.php?admin=admin&mod=post&act=getSportCategory">Sport</a></li>
-                                    <li><a href="index.php?admin=admin&mod=post&act=getTravelCategory">Travel</a></li> -->
+                                   
                                 </ul>
                                 <ul class="social-icons">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>

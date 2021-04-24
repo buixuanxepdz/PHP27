@@ -5,6 +5,7 @@
 		var $model;
 		public function __construct(){
 			$this->model = new Post();
+			$this->category_model = new Category();
 		}
 
 		public function list(){
@@ -25,6 +26,7 @@
 			$id = $_GET['id'];
 			$random = $this->model->random();
 			$post = $this->model->find($id);
+			$getCategory = $this->category_model->getCategory();//category
 			require_once('views/post/detailuser.php');
 		}
 
@@ -32,6 +34,7 @@
 			$id = $_GET['id'];
 			$random = $this->model->random();
 			$post =  $this->model->getCategory($id);
+			$getCategory = $this->category_model->getCategory();//category
 			require_once('views/post/detailOnecategory.php');
 		}
 		/*public function getTravelCategory(){

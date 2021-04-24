@@ -175,10 +175,12 @@
                                 </div><!-- /search-container -->
                                 <ul class="main-nav-items">
                                     <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
-                                    <li><a href="index.php?admin=admin&mod=post&act=getFashionCategory">Fashion</a></li>
-                                    <li><a href="index.php?admin=admin&mod=post&act=getMusicCategory">Music</a></li>
-                                    <li><a href="index.php?admin=admin&mod=post&act=getSportCategory">Sport</a></li>
-                                    <li><a href="index.php?admin=admin&mod=post&act=getTravelCategory">Travel</a></li>
+                                   <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
+                                    <?php foreach ($getCategory as $value) {
+                                        # code...
+                                     ?>
+                                    <li><a href="index.php?admin=admin&mod=post&act=getCategory&id=<?= $value['id'] ?>"><?= $value['category_name'] ?></a></li>
+                                <?php } ?>
                                 </ul>
                                 <ul class="social-icons">
                                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -284,10 +286,12 @@
                                     <h5>Categories</h5>
                                     <ul>
                                        <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
-                                       <li><a href="index.php?admin=admin&mod=post&act=getFashionCategory">Fashion</a></li>
-                                       <li><a href="index.php?admin=admin&mod=post&act=getMusicCategory">Music</a></li>
-                                       <li><a href="index.php?admin=admin&mod=post&act=getSportCategory">Sport</a></li>
-                                       <li><a href="index.php?admin=admin&mod=post&act=getTravelCategory">Travel</a></li>
+                                      <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
+                                    <?php foreach ($getCategory as $value) {
+                                        # code...
+                                     ?>
+                                    <li><a href="index.php?admin=admin&mod=post&act=getCategory&id=<?= $value['id'] ?>"><?= $value['category_name'] ?></a></li>
+                                <?php } ?>
                                     </ul>
                                 </div><!-- /widget -->
                                 <div class="widget widget_tag_cloud">
@@ -356,10 +360,12 @@
                                 <h5>Categories</h5>
                                 <ul>
                                    <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
-                                   <li><a href="index.php?admin=admin&mod=post&act=getFashionCategory">Fashion</a></li>
-                                   <li><a href="index.php?admin=admin&mod=post&act=getMusicCategory">Music</a></li>
-                                   <li><a href="index.php?admin=admin&mod=post&act=getSportCategory">Sport</a></li>
-                                   <li><a href="index.php?admin=admin&mod=post&act=getTravelCategory">Travel</a></li>
+                                   <li><a href="?admin=admin&mod=post&act=getallCategory">ALL</a></li>
+                                    <?php foreach ($getCategory as $value) {
+                                        # code...
+                                     ?>
+                                    <li><a href="index.php?admin=admin&mod=post&act=getCategory&id=<?= $value['id'] ?>"><?= $value['category_name'] ?></a></li>
+                                <?php } ?>
                                 </ul>
                             </div><!-- /widget -->
                         </div><!-- /col-md-4 -->
